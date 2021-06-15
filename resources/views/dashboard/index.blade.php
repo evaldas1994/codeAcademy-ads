@@ -50,7 +50,7 @@
                         <div class="card-main-dish-title">
                             <h3>{{ $post->title }}</h3>
                         </div>
-                        <img class="card-main-dish-img" src="img/dish-1.jpg" alt="dish-img">
+                        <img class="card-main-dish-img" src="{{ asset('storage/'. $post->images()->first()->file_path) }}" alt="dish-img">
 
                     </div>
 

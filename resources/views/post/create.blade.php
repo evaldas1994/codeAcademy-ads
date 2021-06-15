@@ -13,17 +13,17 @@
             @csrf
 
             <div class="title-block">
-                <input class="title-input" name="title" type="text" placeholder="Title">
+                <input class="title-input" name="title" type="text" placeholder="Title" value={{ old('title') }}>
             </div>
 
             <div class="description-block">
-                <textarea class="description-input" name="description" placeholder="Description">
+                <textarea class="description-input" name="description" placeholder="Description" value={{ old('description') }}>
 
                 </textarea>
             </div>
 
             <div class="price-block">
-                <input class="price-input" name="price" type="text" placeholder="Price">
+                <input class="price-input" name="price" type="text" placeholder="Price" value={{ old('price') }}>
             </div>
 
             <div class="category-block">
@@ -34,8 +34,12 @@
                 </select>
             </div>
 
+            <div class="price-block">
+                <input class="price-input" name="show_phone_number" type="checkbox" checked={{ old(('show_phone_number')) }} >
+            </div>
+
             <div class="image-block">
-                <input class="image-input" name="images" type="file">
+                <input class="image-input" name="images[]" type="file" multiple>
             </div>
 
             <div class="submit-block">

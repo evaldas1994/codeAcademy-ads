@@ -202,3 +202,57 @@ a.card-for-actions-item-add:hover {
     background: 3px 3px #570c0c;
     cursor: pointer;
 }
+
+/* ================= NOTIFICATIONS ================= */
+ul {
+    list-style: none;
+}
+
+.notifications {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+p.notification-message {
+    padding: 0.7em 0.5em;
+    color: silver;
+}
+
+p.notification-message-success-title {
+    background: rgba(0, 156, 18, 0.5);
+}
+
+p.notification-message-success-item {
+    color: rgba(0, 156, 18, 0.5);
+    padding: 0.1em 0.5em 0 0.5em;
+    border-left: 1px solid rgba(0, 156, 18, 0.5);
+    border-right: 1px solid rgba(0, 156, 18, 0.5);
+}
+
+p.notification-message-success-item:last-of-type {
+    color: rgba(0, 156, 18, 0.5);
+    padding: 0.1em 0.5em 0 0.5em;
+    border-left: 1px solid rgba(0, 156, 18, 0.5);
+    border-right: 1px solid rgba(0, 156, 18, 0.5);
+    border-bottom: 1px solid rgba(0, 156, 18, 0.5);
+}
+
+p.notification-message-error-title {
+    background: rgba(156, 0, 13, 0.5);
+}
+
+p.notification-message-error-item {
+    color: rgba(156, 0, 13, 0.5);
+    padding: 0.1em 0.5em 0 0.5em;
+    border-left: 1px solid rgba(156, 0, 13, 0.5);
+    border-right: 1px solid rgba(156, 0, 13, 0.5);
+}
+
+p.notification-message-error-item:last-of-type {
+    color: rgba(156, 0, 13, 0.5);
+    padding: 0.1em 0.5em 0 0.5em;
+    border-left: 1px solid rgba(156, 0, 13, 0.5);
+    border-right: 1px solid rgba(156, 0, 13, 0.5);
+    border-bottom: 1px solid rgba(156, 0, 13, 0.5);
+}
