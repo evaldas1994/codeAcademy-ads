@@ -99,3 +99,14 @@ h1 {
 p {
     margin: 0;
 }
+
+button.logout-button {
+    color: silver;
+    background: none;
+    padding: 0.5em 0.5em;
+    border: none;
+}
+
+button.logout-button:hover {
+    background: 3px 3px #570c0c;
+}

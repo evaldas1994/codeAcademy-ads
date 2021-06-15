@@ -18,6 +18,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//auth routes
+Route::get('/register', [RegistrationController::class, 'index'])->name('authentication.register');
+Route::post('/register', [RegistrationController::class, 'save']);
+
+Route::get('/login', [LoginController::class, 'index'])->name('authentication.login');
+Route::post('/login', [LoginController::class, 'login']);
+
+Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
+
+//post routes
+Route::get('/post', [PostController::class, 'index'])->name('post');
+Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
+Route::post('/post/create', [PostController::class, 'save']);
+
+//dashboard routes
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
+
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -25,20 +46,3 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 })->name('home');
-
-
-
-
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-Route::get('/post', [PostController::class, 'index'])->name('post');
-Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
-Route::post('/post/create', [PostController::class, 'save']);
-
-Route::get('/register', [RegistrationController::class, 'index'])->name('authentication.register');
-Route::post('/register', [RegistrationController::class, 'save']);
-
-Route::get('/login', [LoginController::class, 'index'])->name('authentication.login');
-Route::post('/login', [LoginController::class, 'login']);
-
-Route::get('/logout', [LogoutController::class, 'index'])->name('logout');

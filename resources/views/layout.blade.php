@@ -37,8 +37,16 @@
 
             @auth()
                 <li class="header-right-list-item"><a class="header-right-list-item-link" href="#">{{ Auth::user()->email }}</a></li>
-                <li class="header-right-list-item"><a class="header-right-list-item-link" href={{ route('logout') }}>Logout</a></li>
-            @endauth
+                <li class="header-right-list-item">
+                    <form method="post" action="{{ route('logout') }}">
+                        @csrf
+                        <button class="logout-button" type="submit">Logout</button>
+                    </form>
+                </li>
+
+
+
+                @endauth
         </ul>
     </div>
 </header>
