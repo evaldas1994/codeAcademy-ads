@@ -2,9 +2,9 @@
 
 
 @section ('css')
-
+    <link rel="stylesheet" href={{ asset('css/page/post.css') }}>
 @endsection
-<link rel="stylesheet" href={{ asset('css/page/post.css') }}>
+
 @section('page')
     <h2 class="page-title">Posts</h2>
 
@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="card-info">
-                    <p class="card-info-item">Pridėti patiekalą</p>
+                    <p class="card-info-item">Pridėti naują</p>
                 </div>
                 </a>
             </div>

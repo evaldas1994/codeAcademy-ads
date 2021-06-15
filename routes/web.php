@@ -35,6 +35,7 @@ Route::post('/post/create', [PostController::class, 'save']);
 
 //dashboard routes
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::post('/dashboard', [DashboardController::class, 'filter'])->name('dashboard');
 
 
 

@@ -90,6 +90,7 @@ a.header-right-list-item-link {
 
 a.header-right-list-item-link:hover {
     background: 3px 3px #570c0c;
+    cursor: pointer;
 }
 
 h1 {
@@ -109,4 +110,5 @@ button.logout-button {
 
 button.logout-button:hover {
     background: 3px 3px #570c0c;
+    cursor: pointer;
 }

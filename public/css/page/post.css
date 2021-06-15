@@ -140,3 +140,65 @@ input.submit:hover {
     cursor: pointer;
     background: 3px 3px #570c0c;
 }
+
+/*card for actions*/
+.card-for-actions {
+    overflow: hidden;
+}
+
+.card-for-actions-item {
+    border-bottom: 1px solid silver;
+    height: 20px;
+    box-sizing: border-box;
+}
+
+.card-for-actions-item-last {
+    height: 20px;
+    box-sizing: border-box;
+}
+
+.card-for-actions-item-action {
+    width: 100%;
+    height: 18px;
+    line-height: 18px;
+    padding: 0;
+
+    color: silver;
+    background: rgb(32, 32, 32);
+    font-size: 0.8em;
+    box-sizing: border-box;
+    border: none;
+}
+
+.card-for-actions-item-action:hover {
+    background: 3px 3px #570c0c;
+    cursor: pointer;
+}
+
+button.card-for-actions-item-last-button {
+    width: 100%;
+    color: silver;
+    background: rgb(32, 32, 32);
+    border-style: none;
+    font-size: 0.8em;
+    height: 18px;
+}
+
+button.card-for-actions-item-last-button:hover {
+    background: 3px 3px #570c0c;
+    cursor: pointer;
+}
+
+a.card-for-actions-item-add {
+    display: block;
+    text-decoration: none;
+    color: silver;
+    background: rgb(32, 32, 32);
+    text-align: center;
+    height: 18px;
+}
+
+a.card-for-actions-item-add:hover {
+    background: 3px 3px #570c0c;
+    cursor: pointer;
+}
