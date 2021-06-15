@@ -22,8 +22,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => 28,
-            'category_id' => 11,
+            'user_id' => 1,
+            'category_id' => 1,
             'title' => $this->faker->word,
             'description' => $this->faker->sentence,
             'price' => 10.8,
