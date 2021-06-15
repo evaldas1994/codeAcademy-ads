@@ -7,11 +7,26 @@
 <link rel="stylesheet" href={{ asset('css/page/post.css') }}>
 @section('page')
     <h2 class="page-title">Posts</h2>
-    <div class="submit-block">
-        <a href={{ route('post.create') }}> <input class="submit" type="submit" value="Submit"> </a>
-    </div>
 
     <section class="section-dish-cards-list">
+
+            <div class="card add-new-post">
+                <a class="" href={{ route('post.create') }}>
+                <div class="card-main">
+                    <div class="card-main-dish-title">
+                        <h3 class="add-dish">+</h3>
+                    </div>
+                    <!-- <img class="card-main-dish-img" src="" alt="dish-img"> -->
+
+                </div>
+
+                <div class="card-info">
+                    <p class="card-info-item">Pridėti patiekalą</p>
+                </div>
+                </a>
+            </div>
+
+
         @if($posts->count() > 0)
 
             @foreach($posts as $post)

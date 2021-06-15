@@ -25,7 +25,7 @@ class PostController extends Controller
     public function save(Request $request)
     {
 
-//        dd(Auth::id());
+//        dd($request);
 //validate
         $this->validate(
             $request,
@@ -37,7 +37,8 @@ class PostController extends Controller
             ]
         );
 //        dd($request);
-        //create user
+
+        //create post
         Post::create([
             'user_id' => Auth::id(),
             'category_id' => $request['category_id'],
@@ -51,6 +52,9 @@ class PostController extends Controller
         //login user
         auth()->attempt($request->only('email', 'password'));
 
+        foreach ($request->file('images') as $image) {
+            $image->store('posts_images');
+        }
         //redirect
 
         return redirect()->route('dashboard');

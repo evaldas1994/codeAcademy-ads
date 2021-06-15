@@ -8,8 +8,8 @@
 @section('page')
     <h2 class="page-title">Create Post</h2>
 
-    <section class="section-user-form">
-        <form class="user-form"  method="POST" action={{ route('post.create') }}>
+    <section class="section-post-form">
+        <form class="post-form" enctype="multipart/form-data" method="POST" action={{ route('post.create') }}>
             @csrf
 
             <div class="title-block">
@@ -29,12 +29,14 @@
             <div class="category-block">
                 <select name="category_id" id="category">
                     @foreach($categories as $category)
-                    <option value={{ $category->id }}>{{ $category->name }}</option>
+                        <option value={{ $category->id }}>{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>
 
-
+            <div class="image-block">
+                <input class="image-input" name="images" type="file">
+            </div>
 
             <div class="submit-block">
                 <input class="submit" type="submit" value="Submit">
