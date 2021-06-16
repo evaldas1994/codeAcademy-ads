@@ -42,6 +42,10 @@
                 <input class="image-input" name="images[]" type="file" multiple>
             </div>
 
+            <div class="image-block">
+                <input type="date" name="expires_at">
+            </div>
+
             <div class="submit-block">
                 <input class="submit" type="submit" value="Submit">
             </div>
