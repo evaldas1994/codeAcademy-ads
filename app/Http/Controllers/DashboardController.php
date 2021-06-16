@@ -24,6 +24,7 @@ class DashboardController extends Controller
         //get user posts
         $posts = Post::where('user_id', $user['id'])->paginate('5');
 
+//        dd($posts);
 
         return view('dashboard.index', ['posts' => $posts]);
     }

@@ -14,7 +14,8 @@ class Post extends Model
         'category_id',
         'title',
         'description',
-        'price'
+        'price',
+        'expires_at'
     ];
 
     public function user()
