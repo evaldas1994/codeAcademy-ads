@@ -79,6 +79,13 @@ a.card-info-item-link {
     text-decoration: none;
 }
 
+button.post-star-button {
+    background: none;
+    border: none;
+    color: silver;
+    cursor: pointer;
+}
+
 a.card-info-item-link:hover {
     animation-name: card-info-item-link;
     animation-duration: 0.3s;

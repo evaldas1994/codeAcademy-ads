@@ -5,6 +5,7 @@ use App\Http\Controllers\Authentication\LogoutController;
 use App\Http\Controllers\Authentication\RegistrationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostsStarsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,9 @@ Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
 Route::get('/post', [PostController::class, 'index'])->name('post');
 Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
 Route::post('/post/create', [PostController::class, 'save']);
+
+Route::post('/posts/{post}/stars', [PostsStarsController::class, 'store'])->name('posts.stars');
+Route::delete('/posts/{post}/stars', [PostsStarsController::class, 'destroy'])->name('posts.stars');
 
 //dashboard routes
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

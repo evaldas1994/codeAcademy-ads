@@ -27,4 +27,14 @@ class Post extends Model
     {
         return $this->hasMany(PostImage::class);
     }
+
+    public function stars()
+    {
+        return $this->hasMany(PostStar::class);
+    }
+
+    public function starredBy(User $user): bool
+    {
+        return $this->stars->contains('user_id', $user->id);
+    }
 }

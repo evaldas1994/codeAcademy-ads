@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Test;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 
 class DashboardController extends Controller
@@ -22,7 +24,7 @@ class DashboardController extends Controller
         $user = auth()->user();
 
         //get user posts
-        $posts = Post::where('user_id', $user['id'])->paginate('5');
+        $posts = Post::where('user_id', $user['id'])->simplePaginate(5);
 
 //        dd($posts);
 
