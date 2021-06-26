@@ -43,7 +43,7 @@
             </div>
 
             <div class="image-block">
-                <input type="date" name="expires_at">
+                <input id="start" type="date" value="{{old('expires_at')}}" min="{{ now()->format('Y-m-d') }}" max="{{ now()->addDays(60)->format('Y-m-d') }}" name="expires_at">
             </div>
 
             <div class="submit-block">

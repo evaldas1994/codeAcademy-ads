@@ -24,7 +24,7 @@ class DashboardController extends Controller
         $user = auth()->user();
 
         //get user posts
-        $posts = Post::where('user_id', $user['id'])->simplePaginate(5);
+        $posts = Post::where('user_id', $user['id'])->simplePaginate(17);
 
 //        dd($posts);
 

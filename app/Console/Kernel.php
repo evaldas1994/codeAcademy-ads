@@ -24,7 +24,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+         $schedule->command('evis:notify:expiring_posts')
+             ->dailyAt('11:00');
     }
 
     /**

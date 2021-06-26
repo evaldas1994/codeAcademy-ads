@@ -31,7 +31,7 @@ class RegistrationController extends Controller
         $this->validate(
             $request,
             [
-                'email' => 'required|unique:users|email:rfc,dns',
+                'mail' => 'required|unique:users|mail:rfc,dns',
                 'first_name' => 'required|max:255',
                 'last_name' => 'required|max:255',
                 'phone' => 'required|max:30',
@@ -46,7 +46,7 @@ class RegistrationController extends Controller
 //        dd($request);
         //create user
         User::create([
-            'email' => $request['email'],
+            'mail' => $request['mail'],
             'first_name' => $request['first_name'],
             'last_name' => $request['last_name'],
             'phone' => $request['phone'],
@@ -56,7 +56,7 @@ class RegistrationController extends Controller
 
 
         //login user
-        auth()->attempt($request->only('email', 'password'));
+        auth()->attempt($request->only('mail', 'password'));
 
         //redirect
 

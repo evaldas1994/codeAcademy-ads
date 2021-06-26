@@ -13,7 +13,7 @@
             @csrf
 
             <div class="email-block">
-                <input class="email-input" name="email" type="text" placeholder="Email" value="{{ old('email') }}">
+                <input class="email-input" name="email" type="text" placeholder="Email" value="{{ old('mail') }}">
             </div>
 
             <div class="name-block">
