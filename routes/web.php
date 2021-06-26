@@ -33,6 +33,8 @@ Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
 Route::get('/post', [PostController::class, 'index'])->name('post');
 Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
 Route::post('/post/create', [PostController::class, 'save']);
+Route::delete('/post/{post}', [PostController::class, 'destroy'])->name('post.delete');
+
 
 Route::post('/posts/{post}/stars', [PostsStarsController::class, 'store'])->name('posts.stars');
 Route::delete('/posts/{post}/stars', [PostsStarsController::class, 'destroy'])->name('posts.stars');

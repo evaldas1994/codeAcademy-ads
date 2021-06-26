@@ -1,10 +1,3 @@
 <div>
-{{--    @props(['post' => '$post'])--}}
-
-    @if($post->images()->count() > 0)
-        <img class="card-main-dish-img" src="{{ asset('storage/'. $post->images()->first()->file_path) }}" alt="dish-img">
-    @else
-        <img class="card-main-dish-img" src="{{ asset('images/logo.png') }}" alt="dish-img">
-    @endif
-
+    <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
 </div>

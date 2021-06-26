@@ -19,6 +19,7 @@ class PostImage extends Component
      */
     public function render()
     {
+//        dd($post);
         return view('components.post_image');
     }
 }

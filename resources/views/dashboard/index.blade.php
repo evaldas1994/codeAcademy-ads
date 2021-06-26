@@ -52,8 +52,9 @@
                             <h3>{{ $post->title }}</h3>
                         </div>
 
-                        <x-post_image :post="$post"></x-post_image>
-
+{{--                        <x-post_image :post="$post"></x-post_image>--}}
+{{--                        <img class="card-main-dish-img" src="{{ asset('storage/'. $post->images()->first()->file_path) }}" alt="dish-img">--}}
+                        @include('components.post_image')
                     </div>
 
                     <div class="card-info">
@@ -75,7 +76,11 @@
                                 </form>
                             @endif
 {{--                        @endif--}}
-
+                        <form action="{{ route('post.delete', $post) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="post-star-button" type="submit"><i class="fas fa-trash-alt"></i></button>
+                        </form>
                     </div>
                 </div>
             @endforeach

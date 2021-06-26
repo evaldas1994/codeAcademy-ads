@@ -69,7 +69,7 @@ class PostController extends Controller
 
     public function destroy(Post $post): RedirectResponse
     {
-//        $this->authorize('delete', $post);
+        $this->authorize('delete', $post);
         $post->delete();
 
         return back();
