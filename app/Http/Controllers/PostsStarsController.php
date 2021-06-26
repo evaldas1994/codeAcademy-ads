@@ -15,9 +15,7 @@ class PostsStarsController extends Controller
 
     public function store(Post $post): RedirectResponse
     {
-        if ($post->starredBy(auth()->user())) {
-            return back();
-        }
+        $this->authorize('star', $post);
 
         $post->stars()->create([
             'user_id' => auth()->user()->id
@@ -28,9 +26,7 @@ class PostsStarsController extends Controller
 
     public function destroy(Post $post): RedirectResponse
     {
-        if (!$post->starredBy(auth()->user())) {
-            return back();
-        }
+        $this->authorize('unstar', $post);
 
         $post->stars()->where('user_id', auth()->user()->id)->delete();
 

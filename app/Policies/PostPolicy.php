@@ -14,4 +14,14 @@ class PostPolicy
     {
         return $user->id === $post->user_id;
     }
+
+    public function star(User $user, Post $post): bool
+    {
+        return $post->user_id !== $user->id && $post->starredBy($user) === false;
+    }
+
+    public function unstar(User $user, Post $post): bool
+    {
+        return $post->user_id !== $user->id && $post->starredBy($user) === true;
+    }
 }
