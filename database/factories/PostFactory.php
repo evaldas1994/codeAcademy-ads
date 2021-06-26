@@ -29,6 +29,7 @@ class PostFactory extends Factory
             'price' => 10.8,
             'status' => $this->faker->randomElement(['active', 'inactive', 'closed']),
             'label' => $this->faker->randomElement(['new', 'top']),
+            'expires_at' => $this->faker->dateTimeBetween(now(), now()->addDays(60)),
             'show_phone_number' => $this->faker->boolean,
         ];
     }
