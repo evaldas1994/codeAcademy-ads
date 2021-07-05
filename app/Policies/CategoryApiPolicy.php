@@ -19,7 +19,7 @@ class CategoryApiPolicy
         return $user->is_admin;
     }
 
-    public function delete(User $user)
+    public function destroy(User $user)
     {
         return $user->is_admin;
     }
