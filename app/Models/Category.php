@@ -14,5 +14,6 @@ class Category extends Model
         'path',
         'is_active',
         'is_root',
+        'parent_id'
     ];
 }

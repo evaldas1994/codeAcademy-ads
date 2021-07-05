@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIsAdminColumnToUsers extends Migration
+class AddParentIdToCategory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddIsAdminColumnToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_admin')->default(0);
+        Schema::table('categories', function (Blueprint $table) {
+            $table->integer('parent_id')->default(0);
         });
     }
 
@@ -25,8 +25,8 @@ class AddIsAdminColumnToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('is_admin');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropColumn('parent_id');
         });
     }
 }

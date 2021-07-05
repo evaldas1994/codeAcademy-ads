@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use App\Events\UserRegistered;
 
 class RegistrationController extends Controller
 {
@@ -45,7 +46,7 @@ class RegistrationController extends Controller
         );
 //        dd($request);
         //create user
-        User::create([
+        $user = User::create([
             'email' => $request['email'],
             'first_name' => $request['first_name'],
             'last_name' => $request['last_name'],
@@ -54,6 +55,8 @@ class RegistrationController extends Controller
             'password' => Hash::make($request['password']),
         ]);
 
+
+        UserRegistered::dispatch($user);
 
         //login user
         auth()->attempt($request->only('email', 'password'));

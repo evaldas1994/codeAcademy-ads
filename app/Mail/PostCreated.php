@@ -4,7 +4,6 @@ namespace App\Mail;
 
 use App\Models\Post;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -36,9 +35,4 @@ class PostCreated extends Mailable
     {
         return $this->view('mail.post.created');
     }
-
-//    public function getPost()
-//    {
-//        return $this->post;
-//    }
 }
