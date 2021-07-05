@@ -10,9 +10,14 @@ class PostPolicy
 {
     use HandlesAuthorization;
 
-    public function delete(User $user, Post $post): bool
+    public function destroy(User $user, Post $post): bool
     {
-        return ($user->is_admin || ($user->id !== null && $user->id === $post->user_id) );
+        return $this->isAdminOrOwner($user, $post);
+    }
+
+    public function update(User $user, Post $post): bool
+    {
+        return $this->isAdminOrOwner($user, $post);
     }
 
     public function star(User $user, Post $post): bool
@@ -23,5 +28,16 @@ class PostPolicy
     public function unstar(User $user, Post $post): bool
     {
         return $post->user_id !== $user->id && $post->starredBy($user) === true;
+    }
+
+    /**
+     * @param User $user
+     * @param Post $post
+     *
+     * @return bool
+     */
+    private function isAdminOrOwner(User $user, Post $post): bool
+    {
+        return $user->is_admin === true || $user->id === $post->user_id;
     }
 }

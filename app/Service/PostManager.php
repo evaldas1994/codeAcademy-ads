@@ -1,31 +1,32 @@
 <?php
-
-
 namespace App\Service;
-
-
+use DateTime;
 use App\Models\Post;
 use App\Models\User;
-use DateTime;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 class PostManager
 {
     /**
-     * @throws \Illuminate\Validation\ValidationException
+     * @param User $user
+     * @param array $data
+     *
+     * @return Post
+     * @throws ValidationException
      */
-    public function create(User $user, array $data): Post
+    public function create(Authenticatable $user, array $data): Post
     {
-        $dateEnd = (new DateTime('+ 60day'))->format('Y-m-d');
-        Validator::make($data, [
-            'title' => 'required|max:255',
-            'description' => 'required|max:4000',
-            'price' => 'required||regex:/^\d+(\.\d{1,2})?$/|min:0|max:999999',
-            'category_id' => 'required|exists:categories,id',
-            'expires_at' => ['required','date_format:Y-m-d', 'after:today', sprintf('before_or_equal: %s', $dateEnd)],
-        ])->validate();
+        $dateEnd = now()->addDays(60)->format('Y-m-d');
 
+        Validator::make($data, [
+            'title' => ['required', 'max:255'],
+            'description' => ['required', 'max:4800'],
+            'price' => ['required', 'numeric', 'min:0', 'max:999999'],
+            'category_id' => ['required', 'exists:categories,id'],
+            'expires_at' => ['required', 'date_format:Y-m-d', 'after:today', sprintf('before_or_equal: %s', $dateEnd)],
+        ])->validate();
         return $user->posts()->create($data);
     }
 }
