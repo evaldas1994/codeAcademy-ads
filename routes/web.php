@@ -46,6 +46,7 @@ Route::post('/dashboard', [DashboardController::class, 'filter'])->name('dashboa
 
 //notification routes
 Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
+Route::post('/notification', [NotificationController::class, 'store'])->name('notification.create');
 
 
 

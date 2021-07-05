@@ -2,7 +2,7 @@
 
 
 @section ('css')
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
 @endsection
 
 @section('page')
@@ -10,5 +10,18 @@
 
     <section class="section-notification">
 
+        <form class="" method="POST" action={{ route('notification.create') }}>
+            @csrf
+
+            <select multiple="true" name="category_id[]">
+                @foreach($categories as $category)
+                    <option value={{ $category->id }}>{{ $category->name }}</option>
+                @endforeach
+            </select>
+
+            <div class="submit-block">
+                <input class="submit" type="submit" value="Submit">
+            </div>
+        </form>
     </section>
 @endsection
