@@ -57,7 +57,7 @@
             <ul class="main-nav-ul">
                 <a class="main-menu-ul-li-link" href={{ route('dashboard') }}><li class="main-nav-ul-item">Dashboard</li></a>
                 <a class="main-menu-ul-li-link" href={{ route('post') }}><li class="main-nav-ul-item">Posts</li></a>
-                <a class="main-menu-ul-li-link" href="#"><li class="main-nav-ul-item">Link3</li></a>
+                <a class="main-menu-ul-li-link" href={{ route('notification') }}><li class="main-nav-ul-item">Notification preferences</li></a>
             </ul>
         </nav>
     @endauth

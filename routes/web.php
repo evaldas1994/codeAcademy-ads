@@ -4,6 +4,7 @@ use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\LogoutController;
 use App\Http\Controllers\Authentication\RegistrationController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostsStarsController;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +44,8 @@ Route::delete('/posts/{post}/stars', [PostsStarsController::class, 'destroy'])->
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::post('/dashboard', [DashboardController::class, 'filter'])->name('dashboard');
 
+//notification routes
+Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
 
 
 
