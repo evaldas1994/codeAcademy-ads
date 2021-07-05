@@ -8,28 +8,15 @@ use Illuminate\Contracts\Validation\Rule;
 class CategoryParent implements Rule
 {
     /**
-     * Create a new rule instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Determine if the validation rule passes.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
+     * @param string  $attribute
+     * @param mixed  $value
      * @return bool
      */
-    public function passes($attribute, $value)
+    public function passes($attribute, $value): bool
     {
         $parentCategory = Category::findOrFail($value);
         $parentCategoryPath = $parentCategory->path;
-        $parentCategoryLevel = count(explode('/', $parentPath));
-
+        $parentCategoryLevel = count(explode('/', $parentCategoryPath));
 
         if ($parentCategoryLevel > 3) {
             return false;
@@ -39,11 +26,9 @@ class CategoryParent implements Rule
     }
 
     /**
-     * Get the validation error message.
-     *
      * @return string
      */
-    public function message()
+    public function message(): string
     {
         return 'Parent category level must be lower than 4.';
     }

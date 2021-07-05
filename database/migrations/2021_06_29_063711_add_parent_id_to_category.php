@@ -14,7 +14,7 @@ class AddParentIdToCategory extends Migration
     public function up()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->integer('parent_id')->default(0);
+            $table->integer('parent_id');
         });
     }
 
