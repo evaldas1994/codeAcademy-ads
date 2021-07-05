@@ -26,6 +26,9 @@ class CategoryController extends Controller
 
     public function store(Request $request): Category
     {
+        $this->authorize('store', Category::class);
+
+
         return $this->categoryManager->create($request);
     }
 
@@ -36,6 +39,8 @@ class CategoryController extends Controller
 
     public function update(Request $request, Category $category): Category
     {
+        $this->authorize('update', $category);
+
         $category->update($request->only(['name', 'is_active', 'parent_id']));
 
         return $category;
@@ -43,6 +48,8 @@ class CategoryController extends Controller
 
     public function destroy(Category $category): JsonResponse
     {
+        $this->authorize('destroy', $category);
+
         $category->delete();
 
         return new JsonResponse(null, Response::HTTP_NO_CONTENT);

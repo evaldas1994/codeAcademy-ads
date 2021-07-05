@@ -19,13 +19,14 @@ class CategoryFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => $this->faker->word(),
             'path' => '/1/',
             'is_active' => $this->faker->boolean(),
             'is_root' => 0,
+            'parent_id' => 1
         ];
     }
 }
