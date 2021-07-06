@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\User;
+use App\Models\Category;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class NotificationController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $categories = Category::all();
 
@@ -22,7 +24,11 @@ class NotificationController extends Controller
         return view('notification.index', ['categories' => $categories, 'existingCategoriesIds' => $existingCategoriesIds]);
     }
 
-    public function store(Request $request)
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function store(Request $request): RedirectResponse
     {
         $user = User::find(auth()->user()->id);
         $user->notifications()->sync($request['category_id']);
