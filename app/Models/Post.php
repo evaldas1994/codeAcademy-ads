@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Post extends Model
 {
@@ -36,5 +37,10 @@ class Post extends Model
     public function starredBy(User $user): bool
     {
         return $this->stars->contains('user_id', $user->id);
+    }
+
+    public function projects(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class,'users_notifications');
     }
 }
