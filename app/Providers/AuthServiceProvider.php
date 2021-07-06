@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\UserNotification;
+use App\Policies\NotificationApiPolicy;
 use App\Policies\PostPolicy;
 use App\Policies\CategoryApiPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -18,6 +20,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         Category::class => CategoryApiPolicy::class,
         Post::class => PostPolicy::class,
+        UserNotification::class => NotificationApiPolicy::class,
     ];
 
     /**

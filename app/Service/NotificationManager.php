@@ -26,4 +26,5 @@ class NotificationManager
 
         return $user->notifications()->sync($data['category_id']);
     }
+
 }
