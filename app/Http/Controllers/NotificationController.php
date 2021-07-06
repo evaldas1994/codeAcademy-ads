@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Category;
+use App\Service\NotificationManager;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -27,13 +29,14 @@ class NotificationController extends Controller
     /**
      * @param Request $request
      * @return RedirectResponse
+     * @throws ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
-        $user = User::find(auth()->user()->id);
-        $user->notifications()->sync($request['category_id']);
+        $notificationManager = new NotificationManager();
+
+        $notificationManager->create(auth()->user(), $request->all());
 
         return back();
-
     }
 }
