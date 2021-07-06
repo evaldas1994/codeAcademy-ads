@@ -1,10 +1,8 @@
 <?php
 
-
 namespace App\Service;
 
-
-
+use App\Mail\NewPostsByCategories;
 use App\Mail\PostAboutToExpire;
 use App\Mail\PostCreated;
 use App\Models\Post;
@@ -22,5 +20,10 @@ class PostMailService
     public function informUserPostsAboutToExpire(User $user, Collection $posts): void
     {
         Mail::to($user)->send(new PostAboutToExpire($user, $posts));
+    }
+
+    public function informUserAboutNewPostsByCategories(User $user, Collection $posts): void
+    {
+        Mail::to($user)->send(new NewPostsByCategories($user, $posts));
     }
 }
