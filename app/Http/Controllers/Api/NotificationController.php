@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\NotificationCollection;
+use App\Http\Resources\NotificationResource;
 use App\Models\User;
 use App\Models\UserNotification;
 use App\Service\NotificationManager;
@@ -16,11 +18,12 @@ class NotificationController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return JsonResponse
+     * @return NotificationCollection
      */
-    public function index(): JsonResponse
+    public function index(): NotificationCollection
     {
-        return response()->json(UserNotification::all()->where('user_id', Auth::user()->id));
+        $notifications = UserNotification::all()->where('user_id', Auth::user()->id);
+        return new NotificationCollection($notifications);
     }
 
     /**
@@ -40,14 +43,14 @@ class NotificationController extends Controller
      * Display the specified resource.
      *
      * @param $id
-     * @return UserNotification
+     * @return NotificationResource
      * @throws AuthorizationException
      */
-    public function show($id): UserNotification
+    public function show($id): NotificationResource
     {
         $this->authorize('show', UserNotification::find($id));
 
-        return UserNotification::find($id);
+        return new NotificationResource(UserNotification::find($id));
     }
 
     /**
